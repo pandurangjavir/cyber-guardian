@@ -1,0 +1,605 @@
+:root {
+    --primary: #8a2be2;
+    --secondary: #ff5555;
+    --accent: #00ffaa;
+    --health: #00bfff;
+    --text: #e0e0e0;
+    --background: #121212;
+    --card-bg: #1e1e1e;
+    --border: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--background);
+    font-family: 'Comic Neue', cursive;
+    color: var(--text);
+    overflow-x: hidden;
+}
+
+.dark-game-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    min-height: 100vh;
+}
+
+.back-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 8px 15px;
+    background-color: var(--primary);
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    font-size: 1rem;
+    color: white;
+    cursor: pointer;
+    transition: all 0.2s;
+    z-index: 100;
+}
+
+.back-btn:hover {
+    background-color: var(--accent);
+    color: var(--background);
+}
+
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.game-header h1 {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 3.5rem;
+    color: var(--accent);
+    text-shadow: 0 0 10px var(--primary);
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    font-size: 1.5rem;
+    color: var(--text);
+    font-weight: bold;
+}
+
+.header-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 15px;
+}
+
+.sword, .shield {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary);
+    border: 2px solid var(--accent);
+    position: relative;
+}
+
+.sword {
+    transform: rotate(45deg);
+}
+
+.sword::before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 80px;
+    background-color: #aaa;
+    top: -10px;
+    left: 25px;
+    border: 2px solid var(--accent);
+    transform: rotate(-45deg);
+}
+
+.shield {
+    border-radius: 50%;
+}
+
+.shield::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--accent);
+    border-radius: 50%;
+    top: 7px;
+    left: 7px;
+}
+
+.character-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 200px;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.hero {
+    width: 120px;
+    height: 180px;
+    background-color: var(--health);
+    border: 3px solid var(--accent);
+    border-radius: 60px 60px 0 0;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px var(--health);
+}
+
+.hero-face {
+    width: 80px;
+    height: 80px;
+    background-color: #333;
+    border: 3px solid var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.eye {
+    width: 15px;
+    height: 20px;
+    background-color: var(--accent);
+    border-radius: 50%;
+    position: absolute;
+    top: 30px;
+}
+
+.eye.left {
+    left: 20px;
+}
+
+.eye.right {
+    right: 20px;
+}
+
+.mouth {
+    width: 30px;
+    height: 10px;
+    background-color: var(--accent);
+    border-radius: 0 0 20px 20px;
+    position: absolute;
+    bottom: 15px;
+    left: 25px;
+}
+
+.villain-container {
+    position: relative;
+    z-index: 1;
+}
+
+.villain {
+    width: 120px;
+    height: 180px;
+    background-color: var(--secondary);
+    border: 3px solid var(--primary);
+    border-radius: 60px 60px 0 0;
+    position: relative;
+    transition: all 0.3s;
+    box-shadow: 0 0 15px var(--secondary);
+}
+
+.villain-face {
+    width: 80px;
+    height: 80px;
+    background-color: #333;
+    border: 3px solid var(--primary);
+    border-radius: 50%;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.mouth.evil {
+    width: 40px;
+    height: 20px;
+    background-color: var(--primary);
+    border-radius: 0 0 40px 40px;
+    bottom: 10px;
+    left: 20px;
+}
+
+.castle {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 30px;
+}
+
+.gate {
+    width: 50px;
+    height: 80px;
+    background-color: #333;
+    border: 3px solid var(--primary);
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 1.2rem;
+    color: var(--accent);
+    transition: all 0.3s;
+}
+
+.gate.active {
+    background-color: var(--primary);
+    transform: translateY(-10px);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.gate.breached {
+    background-color: var(--secondary);
+    animation: gateBreach 0.5s;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+}
+
+.health-meter, .gate-counter {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.label {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--accent);
+}
+
+.meter {
+    width: 200px;
+    height: 30px;
+    background-color: #333;
+    border: 2px solid var(--primary);
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.fill {
+    height: 100%;
+    background-color: var(--health);
+    transition: width 0.5s;
+    box-shadow: 0 0 10px var(--health);
+}
+
+.heart {
+    position: absolute;
+    right: -15px;
+    top: -5px;
+    width: 30px;
+    height: 30px;
+    background-color: var(--secondary);
+    transform: rotate(45deg);
+}
+
+.heart::before, .heart::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    position: absolute;
+}
+
+.heart::before {
+    top: -15px;
+    left: 0;
+}
+
+.heart::after {
+    top: 0;
+    left: -15px;
+}
+
+.counter {
+    width: 80px;
+    height: 40px;
+    background-color: var(--primary);
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 1.3rem;
+    color: var(--accent);
+}
+
+.challenge-screen {
+    background-color: var(--card-bg);
+    border: 3px solid var(--primary);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 30px;
+    position: relative;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.speech-bubble {
+    background-color: var(--card-bg);
+    border: 2px solid var(--accent);
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative;
+    min-height: 100px;
+}
+
+.speech-bubble::after {
+    content: '';
+    position: absolute;
+    bottom: -20px;
+    left: 50px;
+    border-width: 20px 20px 0;
+    border-style: solid;
+    border-color: var(--card-bg) transparent;
+}
+
+.speech-bubble::before {
+    content: '';
+    position: absolute;
+    bottom: -24px;
+    left: 48px;
+    border-width: 22px 22px 0;
+    border-style: solid;
+    border-color: var(--accent) transparent;
+    z-index: -1;
+}
+
+.text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    color: var(--text);
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.option-btn {
+    padding: 15px;
+    background-color: var(--card-bg);
+    border: 2px solid var(--primary);
+    border-radius: 15px;
+    font-family: 'Comic Neue', cursive;
+    font-size: 1rem;
+    color: var(--text);
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+}
+
+.option-btn:hover {
+    background-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px var(--primary);
+}
+
+.option-btn.correct {
+    background-color: #2e7d32;
+    animation: bounce 0.5s;
+}
+
+.option-btn.incorrect {
+    background-color: #c62828;
+    animation: shake 0.5s;
+}
+
+.result-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.result-content {
+    background-color: var(--card-bg);
+    border: 3px solid var(--accent);
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 500px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 30px var(--primary);
+}
+
+.result-content h2 {
+    font-family: 'Bubblegum Sans', cursive;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--accent);
+}
+
+.result-image {
+    width: 200px;
+    height: 200px;
+    margin: 0 auto 20px;
+    font-size: 5rem;
+    line-height: 200px;
+}
+
+.result-stats {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--text);
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 12px 25px;
+    border: 2px solid var(--accent);
+    border-radius: 30px;
+    font-family: 'Comic Neue', cursive;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.try-again {
+    background-color: var(--primary);
+    color: white;
+}
+
+.dashboard {
+    background-color: var(--accent);
+    color: var(--background);
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px currentColor;
+}
+
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.star {
+    position: absolute;
+    background-color: white;
+    border-radius: 50%;
+    animation: twinkle 2s infinite alternate;
+}
+
+.star:nth-child(1) {
+    width: 2px;
+    height: 2px;
+    top: 10%;
+    left: 20%;
+    animation-delay: 0s;
+}
+.star:nth-child(2) {
+    width: 3px;
+    height: 3px;
+    top: 25%;
+    left: 50%;
+    animation-delay: 0.5s;
+}
+.star:nth-child(3) {
+    width: 1px;
+    height: 1px;
+    top: 40%;
+    left: 80%;
+    animation-delay: 1s;
+}
+.star:nth-child(4) {
+    width: 2px;
+    height: 2px;
+    top: 60%;
+    left: 30%;
+    animation-delay: 1.5s;
+}
+.star:nth-child(5) {
+    width: 3px;
+    height: 3px;
+    top: 75%;
+    left: 65%;
+    animation-delay: 0.2s;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.2; }
+    100% { opacity: 1; }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+@keyframes gateBreach {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .game-header h1 {
+        font-size: 2.5rem;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .options {
+        grid-template-columns: 1fr;
+    }
+    
+    .character-area {
+        height: 150px;
+    }
+    
+    .hero, .villain {
+        width: 80px;
+        height: 120px;
+    }
+    
+    .hero-face, .villain-face {
+        width: 50px;
+        height: 50px;
+        top: 10px;
+        left: 15px;
+    }
+    
+    .eye {
+        top: 20px;
+    }
+    
+    .mouth {
+        bottom: 10px;
+        left: 15px;
+    }
+}

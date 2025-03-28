@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyber Quiz - CyberGuardian</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="quiz-style.css">
+</head>
+<body>
+    <div class="cyber-loader"></div>
+    <div class="neon-grid"></div>
+    
+    <header class="glass-header">
+        <button class="back-btn" onclick="window.location.href='index.html'">← Back</button>
+        <h1 class="cyber-title">🛡️ Cyber Quiz</h1>
+        <div class="timer-bar" id="timerBar"></div>
+    </header>
+
+    <main class="quiz-container">
+        <!-- Instruction Screen -->
+        <div class="screen instruction-screen active">
+            <div class="cyber-card">
+                <h2 class="gradient-text">Instructions</h2>
+                <div class="cyber-list">
+                    <p>🔍 15 Cybersecurity Questions</p>
+                    <p>⏱️ 30 Seconds Per Question</p>
+                    <p>🌟 Earn 10 Points Per Correct Answer</p>
+                    <p>⚠️ Only One Attempt Per Question</p>
+                </div>
+                <button class="cyber-button" onclick="startQuiz()">Start Quiz</button>
+            </div>
+        </div>
+
+        <!-- Quiz Screen -->
+        <div class="screen quiz-screen">
+            <div class="cyber-card">
+                <div class="question-header">
+                    <span class="question-number" id="questionNumber">Q1</span>
+                    <span class="score" id="score">Score: 0</span>
+                </div>
+                <h2 class="question-text" id="questionText"></h2>
+                <div class="options-grid" id="optionsContainer"></div>
+            </div>
+        </div>
+
+        <!-- Results Screen -->
+        <div class="screen result-screen">
+            <div class="cyber-card">
+                <h2 class="gradient-text">Quiz Report</h2>
+                <div class="result-stats">
+                    <div class="stat-box correct">
+                        <h3>✅ Correct</h3>
+                        <p id="correctAnswers">0</p>
+                    </div>
+                    <div class="stat-box incorrect">
+                        <h3>❌ Incorrect</h3>
+                        <p id="incorrectAnswers">0</p>
+                    </div>
+                    <div class="stat-box score">
+                        <h3>🏆 Total Score</h3>
+                        <p id="totalScore">0</p>
+                    </div>
+                </div>
+                <div class="learnings-box">
+                    <h3>📚 Key Learnings</h3>
+                    <ul id="learningsList"></ul>
+                </div>
+                <button class="cyber-button" onclick="window.location.href='index.html'">Back to Main</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="quiz-script.js"></script>
+</body>
+</html>

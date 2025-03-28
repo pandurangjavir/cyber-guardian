@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CyberGuardian - Home</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <body>
+        <div class="particles"></div>        
+        <header class="glass-header">
+            <h1 class="title">
+                <span class="shield-icon">🛡️</span>
+                CyberGuardian
+            </h1>
+            <nav>
+                <button class="nav-btn" id="authBtn" onclick="toggleAuth()">🔑 Login</button>
+                <button class="nav-btn" onclick="startLearning()">📚 Tutorial</button>
+            </nav>
+        </header>
+    
+        <main class="container">
+            <section class="hero">
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <h2 class="hero-title">
+                            <span class="gradient-text">Become a Cyber Hero!</span>
+                            <div class="sparkle"></div>
+                        </h2>
+                        <p class="hero-subtitle">Defend the digital world through interactive challenges and master cybersecurity skills!</p>
+                        <button class="cta-pulse" onclick="showImportance()">
+                            Why It's Important?
+                            <div class="hover-effect"></div>
+                        </button>
+    
+                        <!-- Importance Pop-up -->
+                        <div class="importance-popup" id="importancePopup">
+                            <div class="popup-content">
+                                <h2>Why Cybersecurity Matters?</h2>
+                                <div class="importance-content">
+                                    <div class="importance-item">
+                                        <div class="importance-icon">🔒</div>
+                                        <h3>Protect Personal Data</h3>
+                                        <p>Prevent identity theft and financial fraud</p>
+                                    </div>
+                                    <div class="importance-item">
+                                        <div class="importance-icon">🏢</div>
+                                        <h3>Secure Businesses</h3>
+                                        <p>Guard against corporate data breaches</p>
+                                    </div>
+                                    <div class="importance-item">
+                                        <div class="importance-icon">🌐</div>
+                                        <h3>National Security</h3>
+                                        <p>Protect critical infrastructure from attacks</p>
+                                    </div>
+                                </div>
+                                <button class="close-popup" onclick="closeImportance()">×</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="hero-visual">
+                         <img src="res/img.jpg" class="hero-image floating" alt="Cyber Security Illustration">                       
+                        <div class="glow"></div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Games Section -->
+            <section class="game-grid">
+                <!-- Game 1: Security Quiz -->
+                <article class="game-card" onclick="window.location='game-quiz.html'">
+                    <div class="game-card-inner">
+                        <div class="game-card-front">
+                            <h3>📝 Security Quiz</h3>
+                            <p>Test your cybersecurity knowledge with timed MCQs</p>
+                        </div>
+                        <div class="game-card-back">
+                            <p>⏱️ Timed challenges<br>🌟 Earn stars<br>📊 Compare scores</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <!-- Game 2: Phishing Challenge -->
+                <article class="game-card" onclick="loadGame(2)">
+                    <div class="game-card-inner">
+                        <div class="game-card-front">
+                            <h3>🎣 Phishing Challenge</h3>
+                            <p>Spot fake emails and websites</p>
+                        </div>
+                        <div class="game-card-back">
+                            <p>🔍 Identify phishing attempts<br>📧 Analyze emails<br>🌐 Detect fake websites</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <!-- Game 3: Password Power -->
+                <article class="game-card" onclick="loadGame(3)">
+                    <div class="game-card-inner">
+                        <div class="game-card-front">
+                            <h3>🔐 Password Power</h3>
+                            <p>Create unbreakable passwords</p>
+                        </div>
+                        <div class="game-card-back">
+                            <p>💪 Test password strength<br>🤖 AI cracker simulation<br>🏆 Earn strength badges</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <!-- Game 4: Spot the Malware -->
+                <article class="game-card" onclick="loadGame(4)">
+                    <div class="game-card-inner">
+                        <div class="game-card-front">
+                            <h3>🕵️ Spot the Malware</h3>
+                            <p>Identify malicious software</p>
+                        </div>
+                        <div class="game-card-back">
+                            <p>🔍 Spot fake downloads<br>⚠️ Avoid malware traps<br>🛡️ Learn safe practices</p>
+                        </div>
+                    </div>
+                </article>
+    
+                <!-- Game 5: Social Engineering Escape -->
+                <article class="game-card" onclick="loadGame(5)">
+                    <div class="game-card-inner">
+                        <div class="game-card-front">
+                            <h3>🚪 Social Engineering Escape</h3>
+                            <p>Escape hacker traps</p>
+                        </div>
+                        <div class="game-card-back">
+                            <p>🧠 Solve puzzles<br>📞 Avoid scams<br>🏃 Escape hacker traps</p>
+                        </div>
+                    </div>
+                </article>
+            </section>
+        </main>
+    
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>CyberGuardian</h4>
+                    <p>Making cybersecurity education accessible and engaging for all ages</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Stay Protected</h4>
+                    <p>ⓘ Always update your software<br>
+                    ⓘ Use strong passwords<br>
+                    ⓘ Think before you click</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 CyberGuardian. All rights reserved.</p>
+            </div>
+        </footer>
+    
+        <script src="script.js"></script>
+    </body>
+    </html>
+    <script src="script.js"></script>
+</body>
+</html>

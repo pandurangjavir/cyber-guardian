@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Citadel</title>
+    <link rel="stylesheet" href="game3.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="glitch-text">PASSWORD CITADEL</h1>
+            <div class="hud">
+                <div class="stats">
+                    <span>Level: <span id="level">1</span></span>
+                    <span>Firewall: <span id="integrity">100%</span></span>
+                </div>
+                <button id="back-btn" class="cyber-button">⌂ MAIN BASE</button>
+            </div>
+        </header>
+
+        <div class="battlefield">
+            <div class="vault" id="vault">
+                <div class="password-display" id="password-display">password</div>
+                <div class="strength-meter" id="strength-meter"></div>
+                <div class="shield" id="shield"></div>
+            </div>
+            
+            <div class="modifiers">
+                <div class="mod-card" data-mod="length">➕ LENGTH</div>
+                <div class="mod-card" data-mod="uppercase">🔠 UPPERCASE</div>
+                <div class="mod-card" data-mod="numbers">🔢 NUMBERS</div>
+                <div class="mod-card" data-mod="symbols">⚡ SYMBOLS</div>
+            </div>
+
+            <div class="attack-wave" id="attack-wave"></div>
+        </div>
+
+        <div id="result-screen" class="hidden">
+            <div class="result-hologram">
+                <h2>VAULT BREACHED!</h2>
+                <p>Final Security Level: <span id="final-level"></span></p>
+                <div class="learnings">
+                    <h3>Password Security Lessons:</h3>
+                    <ul id="learnings-list"></ul>
+                </div>
+                <button id="reboot-btn" class="cyber-button">🔄 NEW GAME</button>
+            </div>
+        </div>
+    </div>
+    <audio id="click-sound" src="click.wav"></audio>
+    <audio id="attack-sound" src="attack.wav"></audio>
+    <audio id="game-over-sound" src="game-over.wav"></audio>
+    <script src="game3.js"></script>
+</body>
+</html>

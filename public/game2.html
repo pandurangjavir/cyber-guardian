@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhishBuster 3000</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="game2.css">
+</head>
+<body>
+    <div class="game-container">
+        <header class="game-header">
+            <h1 class="glitch">PHISHBUSTER 3000</h1>
+            <div class="score-board">
+                <span id="score">🔒 SECURE: 0%</span>
+                <button id="back-btn" class="cyber-button">MAIN MENU</button>
+            </div>
+        </header>
+
+        <div class="email-inspector">
+            <div class="email-parts">
+                <div class="email-component from" data-type="sender">
+                    <span class="label">FROM:</span>
+                    <div class="content"></div>
+                </div>
+                <div class="email-component subject" data-type="subject">
+                    <span class="label">SUBJECT:</span>
+                    <div class="content"></div>
+                </div>
+                <div class="email-component body" data-type="body">
+                    <div class="content"></div>
+                </div>
+            </div>
+            
+            <div class="analysis-tools">
+                <div class="tool-btn" id="phish-btn">🚩 MARK PHISH</div>
+                <div class="tool-btn" id="safe-btn">✅ MARK SAFE</div>
+            </div>
+        </div>
+
+        <div class="hud">
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+            <div id="hint" class="ai-hint"></div>
+        </div>
+    </div>
+    <script src="game2.js"></script>
+</body>
+</html>
